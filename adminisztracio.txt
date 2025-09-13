@@ -1,0 +1,17 @@
+Kezdés:    16:00
+Kapcsolat: Teams csoport
+
+Követelmények:
+* A félév során 3db rövid (~15perc) elméleti zh lesz a gyakorlaton.
+* Minden alkalommal összesen -1, 0 vagy 1 pontot lehet szerezni.
+* A megszerzett pontok összege hozzáadódik a vizsga elméleti részén elért pontszámhoz.
+* Például:
+	* 1, 1, 1 pontok esetén +3 pontról indul az elméleti rész
+	* -1, 0, -1  pontok esetén -2 pontról és így tovább
+
+Segédanyagok:
+* C++ szabványok:              https://open-std.org/JTC1/SC22/WG21/docs/standards
+* C++ referencia:              https://en.cppreference.com
+* Pataki Norbert honlapja:     https://patakino.web.elte.hu/pny2
+* Umann Kristóf C++ jegyzetei: https://github.com/Szelethus/ELTE-IK-CPP
+* Godbolt compiler explorer:   https://godbolt.org/
