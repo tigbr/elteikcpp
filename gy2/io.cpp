@@ -16,7 +16,7 @@ void io1() {
 }
 
 void printing_safety() {
-	int i = 3;
+	float i = 3;
 	printf("%d\n", i);
 
 	std::cout << i << '\n';
@@ -24,5 +24,6 @@ void printing_safety() {
 }
 
 int main(void) {
+	printing_safety();
 	return 0;
 }

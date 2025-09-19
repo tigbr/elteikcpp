@@ -1,6 +1,11 @@
 #include <iostream>
 
-int global;
+int global = 0;
+
+int global_variable() {
+	global += 1;
+	return global;
+}
 
 int static_variable() {
 	static int x = 0;
@@ -26,5 +31,9 @@ int main(void) {
 		std::cout << static_variable() << '\n';
 	}
 
-	return 0;
+	for (int i = 0; i < 5; i += 1) {
+		std::cout << global_variable() << '\n';
+	}
+
+	return x;
 }

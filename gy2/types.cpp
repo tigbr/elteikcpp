@@ -4,9 +4,10 @@ char c;
 short s;
 int i;
 long l;
-       
+
 float f;
 double d;
+long double ld;
 
 /*
 
@@ -72,7 +73,11 @@ void literals() {
 struct tester { void *ptr; };
 void guess_type_of_literal() {
 	tester t;
-	// t = 0;
+	// t = 5.4;
+}
+
+float abs(float x) {
+	return x < 0 ? -x : x;
 }
 
 void floating_point_inaccuracy() {
@@ -81,21 +86,22 @@ void floating_point_inaccuracy() {
 		f += 0.1f;
 	}
 	std::cout << f << '\n';
-	std::cout << 10.0f << '\n';
-	std::cout << (f == 10.0f) << '\n';
+	std::cout << 1.0f << '\n';
+	std::cout << (f == 1.0f) << '\n';
+	std::cout << (abs(f - 1.0f) < 0.0001) << '\n';
 }
 
 int numbers[3] = { 1, 2, 3 };
 int numbers2[] = { 1, 2, 3 };
 
-char string1[] = {'H', 'e', 'l', 'l', 'o', ',', 'w', 'o', 'r', 'l', 'd', '!'};
+char string1[] = {'H', 'e', 'l', 'l', 'o', ',', 'w', 'o', 'r', 'l', 'd', '!', '\0'};
 char string2[] = "Hello, world!";
 
 void character_array_vs_ptr_to_string_literal() {
 	// Ez a "Hello, world!" írásvédett tárterületre kerül elhelyezésre. Ha megpróbáljuk felülírni, összeomlik a program
 	// A fordító valószínűleg figyelmeztet is bennünket, hogy const char* típusú változót kellene használni.
 	// Feladat: Használjuk a debugger-t (pl. gdb), hogy megkeressük a program összeomlási helyét! Próbáljuk meg debug szimbólumok nélkül, valamint azokkal együtt is (-g vagy -ggdb kapcsoló fordításnál)!
-	char *str1 = "Hello, world!";
+	const char *str1 = "Hello, world!";
 	// str1[0] = 'h';
 	
     // Ez a "Hello, world!" az str2 tömbben kerül elhelyezésre, amit szabad írni.
@@ -178,6 +184,6 @@ void structure_size() {
 }
 
 int main(void) {
-	structure_size();
+	character_array_vs_ptr_to_string_literal();
 	return 0;
 }
