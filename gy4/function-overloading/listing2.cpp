@@ -8,19 +8,20 @@ void foo(const int&) { puts("foo(const int&)"); }
 // void foo(int) { puts("foo(int)"); }
 // void foo(const int) { puts("foo(const int)"); }
 
-void bar(double, long int) { puts("bar(double, int)"); }
-void bar(float, int) { puts("bar(float, long int)"); }
+//   bar(1.0, 1);
+void bar(double, long int) { puts("bar(double, long int)"); }
+void bar(float, int) { puts("bar(float, int)"); }
 
-void baz(char c, double, long int) { puts("bar(double, int)"); }
-void baz(const char*, float, int) { puts("bar(float, long int)"); }
+void baz(char c, double, long int) { puts("baz(char c, double, long int)"); }
+void baz(const char*, float, int) { puts("baz(const char*, float, int)"); }
 
 int main() {
 	int x = 3;
 	int &ref = x;
 	const int &constref = x;
 
-	// Szigorodjon ref const int& re vagy maradjon csak int&?
-	// foo(ref);
+	// A foo(int&)-re tökéletesen illeszkedik, ezért nem okoz gondot a foo(const int&) jelenléte
+	foo(ref);
 
 	// Az írásvédettség nem veszhet el (const correctness), ezért a const int& változat lesz kiválasztva
 	foo(constref);
